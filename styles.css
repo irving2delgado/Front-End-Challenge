@@ -265,6 +265,18 @@ header nav li {
 	text-align: center;
 }
 
+.destinations .grid li #mixDetail {
+	visibility: hidden;
+	background-image: none;
+}
+.hideCard {
+	visibility: hidden;
+	display: none
+}
+.destinations .grid li #mixImg {
+	
+}
+
 .destinations .grid li h3 {
 	margin-top: 25px;
 }

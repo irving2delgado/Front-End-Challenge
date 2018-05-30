@@ -31,27 +31,32 @@
       <a href="#" class="btn">eXchange  Now</a>
     </div>
   </section>
-  
+<div id="Page1">
   <section class="destinations">
     <h3 class="title">Upcoming MIX's</h3>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati dolorem at esse quas. Nihil repudiandae rerum in, commodi culpa? Velit eligendi asperiores eos, id dolorum! Aliquid deserunt incidunt explicabo pariatur.</p>
     <hr>
 
-    <ul class="grid">
+    <ul class="grid" >
       <!-- 1st -->
       <li class="mixCard" style="background-image: url(https://images.unsplash.com/photo-1474071432118-c0a7b54d6335?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=d2e51075e5f5eecc13814cf379b2ef8e&auto=format&fit=crop&w=1364&q=80);">
         
       </li>
-      <!-- 2nd -->
-      <li class="mixCard" id="mixImg" style="background-image: url();">
-        <h3 id='mix'></h3></br>
-        <a href="#" class="btn" id="toggleCard">eXchange  Now</a>
+<!--       2nd -->
+      <li class="mixCard" id="card2" style="background-image: url();">
+        <h3 id='mixCity'></h3></br>
+        <button onclick="return show('Page2','Page1');" class="btn" id="toggleCard2"> eXchange  Now  </button>
       </li>
-      3rd
+      <li class="hideCard" id="card2detail">
+        this is where the event details go
+        <a href="#" class="btn" id="toggleCard2">eXchange  Now</a>
+      </li>
+<!--       2nd -->
+<!--       3rd -->
       <li class="mixCard" style="background-image: url();">
         
       </li>
-      4th
+<!--       4th -->
       <li class="mixCard" style="background-image: url(https://images.unsplash.com/photo-1467139701929-18c0d27a7516?ixlib=rb-0.3.5&s=abfbe734b53d8d4a6754d59af610b62f&auto=format&fit=crop&w=1350&q=80);"></li>
       <li class="mixCard"  style="background-image: url(https://images.unsplash.com/photo-1517498559795-28a423c31125?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=d40d06e284aae2df1f87cd17be6e68f7&auto=format&fit=crop&w=1350&q=80);">
         
@@ -73,7 +78,31 @@
       </li>
     </ul>
   </section>
-  
+  <section class="hideCard">
+    <ul class="grid">
+      <li>
+        this is wher edata goes
+      </li>
+      <li>
+        
+      </li>
+    </ul>
+  </section>
+</div>
+
+<div id="Page2">
+   <section class="">
+    <ul class="grid">
+      <li>
+        this is wher edata goes
+        <button onclick="return show('Page1','Page2');" class="btn" id="toggleCard2"> eXchange  Now  </button>
+      </li>
+      <li>
+        
+      </li>
+    </ul>
+  </section>
+</div>
   <section class="packages">
     <h3 class="title">The MIX Platform</h3>
     <p>I could think of some much better components to put here but they would take longer to build. Perhaps later i can return and upgrade.</p>
@@ -103,6 +132,7 @@
       </li>
     </ul>
   </section>
+
 
   <section class="testimonials">
     <h3 class="title">Testimonials from our adventurers:</h3>
