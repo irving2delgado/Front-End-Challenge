@@ -238,7 +238,9 @@ header nav li {
 	.hero {
 		min-height: 600px;
 	}
-
+	.hero .background-image {
+		background-size: 90% 90%;
+	}
 	.hero h1 {
 		font-size: 48px;
 	}
@@ -255,33 +257,43 @@ header nav li {
 /*Destinations Section*/
 
 .destinations .grid li {
-	height: 350px;
+	height: 450px;
 	padding: 20px;
 	background-clip: content-box;
 	background-size: cover;
 	background-position: center;
+	text-align: center;
 }
 
-.destinations .grid li.small {
-	flex-basis: 40%;
+.destinations .grid li h3 {
+	margin-top: 25px;
 }
 
-.destinations .grid li.large {
-	flex-basis: 60%;
+.destinations .grid li.mixCard {
+	flex-basis: 50%;
+
+}
+
+.destinations .grid li.mixCard {
+	flex-basis: 50%;
 	border: black;
 }
 
 @media (max-width: 1100px) {
-	.destinations .grid li.small,
-	.destinations .grid li.large {
+	.destinations .grid li.mixCard,
+	.destinations .grid li.mixCard {
 		flex-basis: 50%;
+		background-size: cover;
+		
 	}
 }
 
 @media (max-width: 800px) {
-	.destinations .grid li.small,
-	.destinations .grid li.large {
+	.destinations .grid li.mixCard,
+	.destinations .grid li.mixCard {
 		flex-basis: 100%;
+				background-size: 100% 100%;
+
 	}
 }
 
