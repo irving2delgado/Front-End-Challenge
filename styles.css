@@ -251,31 +251,25 @@ header nav li {
                                /*Destinations Section*/
 
 .destinations .grid li {
+	margin:50px;
 	height: 550px;
-	padding: 20px;
-	background-clip: content-box;
+	padding: 0px;
+	/*background-clip: content-box;
 	background-size: cover;
-	background-position: center;
+	background-position: center;*/
 	text-align: center;
-}
+	background-size: 100% 100%;
+	flex-basis: 40%;
+	border-radius: 20px;
 
 
-.hideCard {
-	visibility: hidden;
-	display: none
-}
-.destinations .grid li #mixImg {
-	
 }
 
 .destinations .grid li h3 {
 	margin-top: 25px;
 }
 
-.destinations .grid li.mixCard {
-	flex-basis: 50%;
 
-}
 
 
 @media (max-width: 1100px) {
@@ -315,10 +309,14 @@ header nav li {
 
 	
 }
+ .map {
+      height: 400px;
+      width: 100%;
+    }
 
 /*.singleEvent .grid li*/ #singleImg {
 	flex-basis: 80%;
-	height: 800px !important;
+	height: 700px !important;
 	background-size: 100% 100%;
 	
 }
