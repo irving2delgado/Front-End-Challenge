@@ -6,10 +6,11 @@ $(window).on('load', function(){
 	.done(function(data){
 		console.log(data);
 		var mix = data;
-
-		const firstEvent = data[0];
 		url = mix[0].image;
 		city = mix[0].city;
+		description = mix[0].description;
+		duration = mix[0].duration
+
 
 
 		$('#mixCity').append(city);
@@ -17,6 +18,13 @@ $(window).on('load', function(){
 
 		callback(data);
 	})
+		
+		$("#toggleCard2").click(function(data){
+  	$('.singleEvent > .grid > li > h1').append(city);
+  	$('.singleEvent > .grid > li > #description').append(description);
+  	$('#singleImg').css("background-image", "url(" + url + ")");
+  })
+	
 	.fail(function(){
   			//fail code here
   	})
@@ -37,20 +45,21 @@ var return_first;
 function callback(response) {
   return_first = response;
   //use return_first variable here
-  let $detail2 = $("#.detail2");
-  let $card2 = $(".card2")
+  // let $detail2 = $("#.detail2");
+  // let $card2 = $(".card2")
 
   // $("#toggleCard").click(function(){
   // if ($detail2.is(':hidden')){
   // 	$card2.hide();
 
-  // }
-	// $("li #toggleCard2").click(function(){
- //  	$('section > .singleEvent').removeClass('.hideCard');
- //  	$('section > .destinations').addClass('.hideCard');
- //  });
+  }
+	
+	$("#toggleCard2").click(function(){
+  	$('section > .singleEvent').removeClass('.hideCard');
+  	$('section > .destinations').addClass('.hideCard');
+  });
   console.log(return_first);
-}
+
 
 
 
