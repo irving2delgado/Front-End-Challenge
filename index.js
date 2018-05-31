@@ -1,12 +1,18 @@
- function show(shown, hidden) {
-  document.getElementById(shown).style.display='block';
-  document.getElementById(hidden).style.display='none';
-  return false;
-}
+
+$("#toggleBack").click(function(){
+			$(".singleEvent > ul > li > h1").empty();
+			$(".singleEvent > ul > li > p").empty();
+	
+	})
+	function show(shown, hidden) {
+  			document.getElementById(shown).style.display='block';
+  			document.getElementById(hidden).style.display='none';
+  			return false;
+		}	
 
 
 $(window).on('load', function(){
-	$.getJSON('http://www.mocky.io/v2/5b0f7db53000000e001150a5')
+	$.getJSON('http://www.mocky.io/v2/5b0ffc473000006a0011535d')
 	.done(function(data){
 		console.log(data);
 				$( ".destinations li" ).each(function( i ) {
@@ -22,8 +28,18 @@ $(window).on('load', function(){
 		duration = mix[i].duration;
 		time = mix[i].time;
 		date = mix[i].date;
-		var eventSelect = ('"#toggleCard' + i + '"');
+		// var eventSelect = ('"#toggleCard' + i + '"');
+		$(this).append(city);
 		$(this).css("background-image", "url(" + url + ")");
+
+			$(this).click(function(){
+  	$('.singleEvent > .grid > li > h1').append(city);
+  	$('.singleEvent > .grid > li > #description').append(description);
+  	$('.singleEvent > .grid > li > #time').append(time);
+  	$('.singleEvent > .grid > li > #duration').append(duration + "Hrs");
+  	$('.singleEvent > .grid > li > #singleImg').css("background-image", "url(" + url + ")");
+  })
+
 });
 		// var mix = data;
 		// url = mix[i].image;
@@ -44,39 +60,54 @@ $(window).on('load', function(){
 		callback(data);
 	})
 		
-		$(this).click(function(mix){
-  	$('.singleEvent > .grid > li > h1').append(city);
-  	$('.singleEvent > .grid > li > #description').append(description);
-  	$('.singleEvent > .grid > li > #time').append(time);
-  	$('.singleEvent > .grid > li > #duration').append(duration + "Hrs");
-  	$('#singleImg').css("background-image", "url(" + url + ")");
-  })
+		// $(this).click(function(mix){
+  // 	$('.singleEvent > .grid > li > h1').append(city);
+  // 	$('.singleEvent > .grid > li > #description').append(description);
+  // 	$('.singleEvent > .grid > li > #time').append(time);
+  // 	$('.singleEvent > .grid > li > #duration').append(duration + "Hrs");
+  // 	$('.singleEvent > .grid > li > #singleImg').css("background-image", "url(" + url + ")");
+  // })
 	
-	 // var map = new ol.Map({
-  //       target: 'map',
-  //       layers: [
-  //         new ol.layer.Tile({
-  //           source: new ol.source.OSM()
-  //         })
-  //       ],
-  //       view: new ol.View({
-  //         center: ol.proj.fromLonLat([37.41, 8.82]),
-  //         zoom: 4
-  //       })
-  //     });
+	// $("#toggleBack").click(function(){
+	// 		$(".singleEvent > .grid > li").removeData();
+	// 		$(".singleEvent > .grid > li > p").removeData();
+	// 	function show(shown, hidden) {
+ //  			document.getElementById(shown).style.display='block';
+ //  			document.getElementById(hidden).style.display='none';
+ //  			return false;
+	// 	}	
+	// })
 
+	
 	// .fail(function(){
  //  			//fail code here
  //  	})
 
 });
+$("#toggleBack").click(function(){
+			$(".singleEvent > .grid > li").removeData();
+			$(".singleEvent > .grid > li > p").removeData();
+		function show(shown, hidden) {
+  			document.getElementById(shown).style.display='block';
+  			document.getElementById(hidden).style.display='none';
+  			return false;
+		}	
+	})
 
 
-function show(shown, hidden) {
-  document.getElementById(shown).style.display='block';
-  document.getElementById(hidden).style.display='none';
-  return false;
-}
+	 var map = new ol.Map({
+        target: 'map',
+        layers: [
+          new ol.layer.Tile({
+            source: new ol.source.OSM()
+          })
+        ],
+        view: new ol.View({
+          center: ol.proj.fromLonLat([37.41, 8.82]),
+          zoom: 4
+        })
+      });
+
 
 var return_first;
 function callback(response) {
