@@ -1,40 +1,84 @@
-var card = $('#mix');
-var mixList = $.makeArray(card) ;
+ var map = new ol.Map({
+        target: 'map',
+        layers: [
+          new ol.layer.Tile({
+            source: new ol.source.OSM()
+          })
+        ],
+        view: new ol.View({
+          center: ol.proj.fromLonLat([37.41, 8.82]),
+          zoom: 4
+        })
+      });
+
 
 $(window).on('load', function(){
-	$.getJSON('http://www.mocky.io/v2/5b0ec03d3200004c00c19c23')
+	$.getJSON('http://www.mocky.io/v2/5b0f67de3000006400115058')
 	.done(function(data){
 		console.log(data);
-		var mix = data;
-		url = mix[0].image;
-		city = mix[0].city;
+				$( ".destinations li" ).each(function( i ) {
+			// var i = index;
+  console.log( i + ": " + $( this ).text() );
+  console.log(i);
+  	// $('"#toggleCard' + i + '"').css("background-image", "url(" + url + ")");
+  		// $('"#toggleCard' + i + '"').css("background-image", "url(" + url + ")");
+  			var mix = data;
+		url = mix[i].image;
+		city = mix[i].city;
 		description = mix[0].description;
-		duration = mix[0].duration
+		duration = mix[0].duration;
+		time = mix[0].time;
+		date = mix[0].date;
+		var eventSelect = ('"#toggleCard' + i + '"');
+		$(this).css("background-image", "url(" + url + ")");
+});
+		// var mix = data;
+		// url = mix[i].image;
+		// city = mix[0].city;
+		// description = mix[0].description;
+		// duration = mix[0].duration;
+		// time = mix[0].time;
+		// date = mix[0].date;
+		// var eventSelect = ('"#toggleCard' + i + '"');
+
+	
 
 
 
 		$('#mixCity').append(city);
-		$("#card2").css("background-image", "url(" + url + ")");
+		// $('"#toggleCard' + i + '"').css("background-image", "url(" + url + ")");
 
 		callback(data);
 	})
 		
-		$("#toggleCard2").click(function(data){
+		$(this).click(function(data){
   	$('.singleEvent > .grid > li > h1').append(city);
   	$('.singleEvent > .grid > li > #description').append(description);
+  	$('.singleEvent > .grid > li > #time').append(time);
+  	$('.singleEvent > .grid > li > #duration').append(duration + "Hrs");
   	$('#singleImg').css("background-image", "url(" + url + ")");
   })
 	
-	.fail(function(){
-  			//fail code here
-  	})
+	 var map = new ol.Map({
+        target: 'map',
+        layers: [
+          new ol.layer.Tile({
+            source: new ol.source.OSM()
+          })
+        ],
+        view: new ol.View({
+          center: ol.proj.fromLonLat([37.41, 8.82]),
+          zoom: 4
+        })
+      });
+
+	// .fail(function(){
+ //  			//fail code here
+ //  	})
 
 });
 
-// $(" #toggleCard2").click(function(){
-//   	$('.destinations').switchClass('destinations','hideCard');
-//   	$('.').addClass('.hideCard');
-//   });
+
 function show(shown, hidden) {
   document.getElementById(shown).style.display='block';
   document.getElementById(hidden).style.display='none';
@@ -44,20 +88,9 @@ function show(shown, hidden) {
 var return_first;
 function callback(response) {
   return_first = response;
-  //use return_first variable here
-  // let $detail2 = $("#.detail2");
-  // let $card2 = $(".card2")
-
-  // $("#toggleCard").click(function(){
-  // if ($detail2.is(':hidden')){
-  // 	$card2.hide();
-
+  
   }
 	
-	$("#toggleCard2").click(function(){
-  	$('section > .singleEvent').removeClass('.hideCard');
-  	$('section > .destinations').addClass('.hideCard');
-  });
   console.log(return_first);
 
 

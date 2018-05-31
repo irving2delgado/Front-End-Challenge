@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
   <title>Mix Movement</title>
+   <link rel="stylesheet" href="https://openlayers.org/en/v4.6.5/css/ol.css" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
@@ -45,7 +46,7 @@
 <!--       2nd -->
       <li class="mixCard" id="card2" style="background-image: url();">
         <h3 id='mixCity'></h3></br>
-        <button onclick="return show('Page2','Page1');" class="btn" id="toggleCard2"> eXchange  Now  </button>
+        <button onclick="return show('Page2','Page1');" class="btn" id="toggleCard0"> eXchange  Now  </button>
       </li>
      
 <!--       3rd -->
@@ -84,16 +85,17 @@
         <h1></h1>
         <p id="description"></p>
         <p id="time"></p>
-        <p id="time"></p>
-        <p id="time"></p>
+        <p id="duration"></p>
+        <p id="date"></p>
 
-        this is wher edata goes
+        This is where data goes
         </br><button onclick="return show('Page1','Page2');" class="btn" id="toggleCard2"> eXchange  Now  </button>
       </li>
-      <li class="mixCard" id="singleImg" style="background-image: url();">
+      <li class="" id="singleImg" style="background-image: url();">
         
       </li>
-      <li>
+      <li class="mixCard" >
+        <p  id="map" class="map"></p>
         
       </li>
       <li>
@@ -172,6 +174,7 @@ Show a map (google maps) to display the coordinates of the event
       <li><a href="#"><i class="fa fa-snapchat-square fa-2x"></i></a></li>
     </ul>
   </footer>
+<script src="https://openlayers.org/en/v4.6.5/build/ol.js" type="text/javascript"></script>
 <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
