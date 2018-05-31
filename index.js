@@ -30,7 +30,7 @@ $(window).on('load', function(){
 			duration = mix[i].duration;
 			time = mix[i].time;
 			date = mix[i].date;
-			$(this).append(city);
+			$(this).prepend(city);
 			$(this).css("background-image", "url(" + url + ")");
 
 		});
