@@ -15,23 +15,25 @@ function show(shown, hidden) {
 // *************** Load JSON Data 
 
 $(window).on('load', function(){
-	$.getJSON('http://www.mocky.io/v2/5b10088930000010001153a2')
+	$.getJSON('https://app.ticketmaster.com/discovery/v2/events.json?apikey=05V5aNrvqjFGKx5vyDpSYYAcenZqzQEo')
 		.done(function(data){
 			console.log(data);
 
 		$( ".destinations li" ).each(function( i ) {			
   			console.log( i + ": " + $( this ).text() );
-  			console.log(i);
   	
-  			var mix = data;
-			url = mix[i].image;
-			city = mix[i].city;
-			description = mix[i].description;
-			duration = mix[i].duration;
-			time = mix[i].time;
-			date = mix[i].date;
-			$(this).prepend(city);
+			var mix = data;
+			url = mix._embedded.events[i].images[1].url;
 			$(this).css("background-image", "url(" + url + ")");
+			name = mix._embedded.events[i].name;
+			$(this).prepend(name);
+			// city = mix._embedded.events[i]._embedded.venues[0].name;
+			// $(this).append(city);
+			// description = mix[i].description;
+			// duration = mix[i].duration;
+			// time = mix[i].time;
+			// date = mix[i].date;
+			// $(this).css("background-image", "url(" + url + ")");
 
 		});
 
@@ -51,17 +53,18 @@ function callback(response) {
   mix = response;
   i =0;
   
-// ************************Mix Card 1 ****************************
+// ************************ Mix Card 1 ****************************
 
   	$("#toggleCard1").click(function(){
-  		i = 0;
-  		$('.singleEvent > .grid > li > h1').append(mix[i].city);
-  		$('.singleEvent > .grid > li > #description').append(mix[i].description);
-  		$('.singleEvent > .grid > li > #time').append(mix[i].time);
-  		$('.singleEvent > .grid > li > #duration').append(mix[i].duration + "Hrs");
-  		$('#singleImg').css("background-image", "url(" + mix[i].image + ")");
-  		x = mix[i].location_lng;
-  		y = mix[i].location_lat;
+		  i = 0;
+		
+  		$('.singleEvent > .grid > li > h1').append(mix._embedded.events[i].name);
+  		$('.singleEvent > .grid > li > #description').append(mix._embedded.events[i]._embedded.venues[0].name);
+  		$('.singleEvent > .grid > li > #time').append(mix._embedded.events[i].dates.start.localTime);
+  		$('.singleEvent > .grid > li > #date').append(mix._embedded.events[i].dates.start.localDate);
+  		$('#singleImg').css("background-image", "url(" + mix._embedded.events[i].images[1].url + ")");
+  		x = mix._embedded.events[i]._embedded.venues[0].location.longitude;
+  		y = mix._embedded.events[i]._embedded.venues[0].location.latitude;
 
   		var map = new ol.Map({
         	target: 'map',
@@ -82,13 +85,13 @@ function callback(response) {
 
 	$("#toggleCard2").click(function(){
   		i = 1;
-  		$('.singleEvent > .grid > li > h1').append(mix[i].city);
-  		$('.singleEvent > .grid > li > #description').append(mix[i].description);
-  		$('.singleEvent > .grid > li > #time').append(mix[i].time);
-  		$('.singleEvent > .grid > li > #duration').append(mix[i].duration + "Hrs");
-  		$('#singleImg').css("background-image", "url(" + mix[i].image + ")");
-  		x = mix[i].location_lng;
-  		y = mix[i].location_lat;
+  		$('.singleEvent > .grid > li > h1').append(mix._embedded.events[i].name);
+  		$('.singleEvent > .grid > li > #description').append(mix._embedded.events[i]._embedded.venues[0].name);
+  		$('.singleEvent > .grid > li > #time').append(mix._embedded.events[i].dates.start.localTime);
+  		$('.singleEvent > .grid > li > #date').append(mix._embedded.events[i].dates.start.localDate);
+  		$('#singleImg').css("background-image", "url(" + mix._embedded.events[i].images[1].url + ")");
+  		x = mix._embedded.events[i]._embedded.venues[0].location.longitude;
+  		y = mix._embedded.events[i]._embedded.venues[0].location.latitude;
 
   		var map = new ol.Map({
         	target: 'map',
@@ -108,13 +111,13 @@ function callback(response) {
 
 	$("#toggleCard3").click(function(){
   		i = 2;
-  		$('.singleEvent > .grid > li > h1').append(mix[i].city);
-  		$('.singleEvent > .grid > li > #description').append(mix[i].description);
-  		$('.singleEvent > .grid > li > #time').append(mix[i].time);
-  		$('.singleEvent > .grid > li > #duration').append(mix[i].duration + "Hrs");
-  		$('#singleImg').css("background-image", "url(" + mix[i].image + ")");
-  		x = mix[i].location_lng;
-  		y = mix[i].location_lat;
+  		$('.singleEvent > .grid > li > h1').append(mix._embedded.events[i].name);
+  		$('.singleEvent > .grid > li > #description').append(mix._embedded.events[i]._embedded.venues[0].name);
+  		$('.singleEvent > .grid > li > #time').append(mix._embedded.events[i].dates.start.localTime);
+  		$('.singleEvent > .grid > li > #date').append(mix._embedded.events[i].dates.start.localDate);
+  		$('#singleImg').css("background-image", "url(" + mix._embedded.events[i].images[1].url + ")");
+  		x = mix._embedded.events[i]._embedded.venues[0].location.longitude;
+  		y = mix._embedded.events[i]._embedded.venues[0].location.latitude;
 
   		var map = new ol.Map({
         	target: 'map',
@@ -134,13 +137,13 @@ function callback(response) {
 
 	$("#toggleCard4").click(function(){
   		i = 3;
-  		$('.singleEvent > .grid > li > h1').append(mix[i].city);
-  		$('.singleEvent > .grid > li > #description').append(mix[i].description);
-  		$('.singleEvent > .grid > li > #time').append(mix[i].time);
-  		$('.singleEvent > .grid > li > #duration').append(mix[i].duration + "Hrs");
-  		$('#singleImg').css("background-image", "url(" + mix[i].image + ")");
-  		x = mix[i].location_lng;
-  		y = mix[i].location_lat;
+  		$('.singleEvent > .grid > li > h1').append(mix._embedded.events[i].name);
+  		$('.singleEvent > .grid > li > #description').append(mix._embedded.events[i]._embedded.venues[0].name);
+  		$('.singleEvent > .grid > li > #time').append(mix._embedded.events[i].dates.start.localTime);
+  		$('.singleEvent > .grid > li > #date').append(mix._embedded.events[i].dates.start.localDate);
+  		$('#singleImg').css("background-image", "url(" + mix._embedded.events[i].images[1].url + ")");
+  		x = mix._embedded.events[i]._embedded.venues[0].location.longitude;
+  		y = mix._embedded.events[i]._embedded.venues[0].location.latitude;
 
   		var map = new ol.Map({
         	target: 'map',
@@ -160,13 +163,13 @@ function callback(response) {
 
 	$("#toggleCard5").click(function(){
   		i = 4;
-  		$('.singleEvent > .grid > li > h1').append(mix[i].city);
-  		$('.singleEvent > .grid > li > #description').append(mix[i].description);
-  		$('.singleEvent > .grid > li > #time').append(mix[i].time);
-  		$('.singleEvent > .grid > li > #duration').append(mix[i].duration + "Hrs");
-  		$('#singleImg').css("background-image", "url(" + mix[i].image + ")");
-  		x = mix[i].location_lng;
-  		y = mix[i].location_lat;
+  		$('.singleEvent > .grid > li > h1').append(mix._embedded.events[i].name);
+  		$('.singleEvent > .grid > li > #description').append(mix._embedded.events[i]._embedded.venues[0].name);
+  		$('.singleEvent > .grid > li > #time').append(mix._embedded.events[i].dates.start.localTime);
+  		$('.singleEvent > .grid > li > #date').append(mix._embedded.events[i].dates.start.localDate);
+  		$('#singleImg').css("background-image", "url(" + mix._embedded.events[i].images[1].url + ")");
+  		x = mix._embedded.events[i]._embedded.venues[0].location.longitude;
+  		y = mix._embedded.events[i]._embedded.venues[0].location.latitude;
 
   		var map = new ol.Map({
         	target: 'map',
@@ -186,13 +189,13 @@ function callback(response) {
 
 	$("#toggleCard6").click(function(){
   		i = 5;
-  		$('.singleEvent > .grid > li > h1').append(mix[i].city);
-  		$('.singleEvent > .grid > li > #description').append(mix[i].description);
-  		$('.singleEvent > .grid > li > #time').append(mix[i].time);
-  		$('.singleEvent > .grid > li > #duration').append(mix[i].duration + "Hrs");
-  		$('#singleImg').css("background-image", "url(" + mix[i].image + ")");
-  		x = mix[i].location_lng;
-  		y = mix[i].location_lat;
+  		$('.singleEvent > .grid > li > h1').append(mix._embedded.events[i].name);
+  		$('.singleEvent > .grid > li > #description').append(mix._embedded.events[i]._embedded.venues[0].name);
+  		$('.singleEvent > .grid > li > #time').append(mix._embedded.events[i].dates.start.localTime);
+  		$('.singleEvent > .grid > li > #date').append(mix._embedded.events[i].dates.start.localDate);
+  		$('#singleImg').css("background-image", "url(" + mix._embedded.events[i].images[1].url + ")");
+  		x = mix._embedded.events[i]._embedded.venues[0].location.longitude;
+  		y = mix._embedded.events[i]._embedded.venues[0].location.latitude;
 
   		var map = new ol.Map({
         	target: 'map',
@@ -212,13 +215,13 @@ function callback(response) {
 
 	$("#toggleCard7").click(function(){
   		i = 6;
-  		$('.singleEvent > .grid > li > h1').append(mix[i].city);
-  		$('.singleEvent > .grid > li > #description').append(mix[i].description);
-  		$('.singleEvent > .grid > li > #time').append(mix[i].time);
-  		$('.singleEvent > .grid > li > #duration').append(mix[i].duration + "Hrs");
-  		$('#singleImg').css("background-image", "url(" + mix[i].image + ")");
-  		x = mix[i].location_lng;
-  		y = mix[i].location_lat;
+  		$('.singleEvent > .grid > li > h1').append(mix._embedded.events[i].name);
+  		$('.singleEvent > .grid > li > #description').append(mix._embedded.events[i]._embedded.venues[0].name);
+  		$('.singleEvent > .grid > li > #time').append(mix._embedded.events[i].dates.start.localTime);
+  		$('.singleEvent > .grid > li > #date').append(mix._embedded.events[i].dates.start.localDate);
+  		$('#singleImg').css("background-image", "url(" + mix._embedded.events[i].images[1].url + ")");
+  		x = mix._embedded.events[i]._embedded.venues[0].location.longitude;
+  		y = mix._embedded.events[i]._embedded.venues[0].location.latitude;
 
   		var map = new ol.Map({
         	target: 'map',
@@ -238,24 +241,24 @@ function callback(response) {
 
 	$("#toggleCard8").click(function(){
   		i = 7;
-  		$('.singleEvent > .grid > li > h1').append(mix[i].city);
-  		$('.singleEvent > .grid > li > #description').append(mix[i].description);
-  		$('.singleEvent > .grid > li > #time').append(mix[i].time);
-  		$('.singleEvent > .grid > li > #duration').append(mix[i].duration + "Hrs");
-  		$('#singleImg').css("background-image", "url(" + mix[i].image + ")");
-  		x = mix[i].location_lng;
-  		y = mix[i].location_lat;
+  		$('.singleEvent > .grid > li > h1').append(mix._embedded.events[i].name);
+  		$('.singleEvent > .grid > li > #description').append(mix._embedded.events[i]._embedded.venues[0].name);
+  		$('.singleEvent > .grid > li > #time').append(mix._embedded.events[i].dates.start.localTime);
+  		$('.singleEvent > .grid > li > #date').append(mix._embedded.events[i].dates.start.localDate);
+  		$('#singleImg').css("background-image", "url(" + mix._embedded.events[i].images[1].url + ")");
+  		x = mix._embedded.events[i]._embedded.venues[0].location.longitude;
+  		y = mix._embedded.events[i]._embedded.venues[0].location.latitude;
 
-  		var map = new ol.Map({
-        	target: 'map',
-        	layers: [
-          	new ol.layer.Tile({
-            	source: new ol.source.OSM()
-          	})
-        	],
-       	 	view: new ol.View({
-          	center: ol.proj.fromLonLat([x , y]),
-          	zoom: 12
+		  var map = new ol.Map({
+			target: 'map',
+			layers: [
+			  new ol.layer.Tile({
+				source: new ol.source.OSM()
+			  })
+			],
+			view: new ol.View({
+			  center: ol.proj.fromLonLat([x,y]),
+			  zoom: 4
         	})
      	});
 	});
